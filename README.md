@@ -14,7 +14,7 @@ User activity log manager. All kind of database activity will be
 ### Run the following command to pull in the latest version:
 
 ```
-composer require mygov/logtracker
+composer require phgov/auditlog
 ```
 
 ### Lumen only
@@ -24,7 +24,7 @@ Register the provider in your boostrap app file bootstrap/app.php
 Add the following line in the "Register Service Providers" section at the bottom of the file.
 
 ```
-$app->register(\myGov\Logtracker\LogtrackerServiceProvider::class);
+$app->register(\phGov\Logtracker\LogtrackerServiceProvider::class);
 ```
 
 For facades, uncomment ```$app->withFacades();``` in your boostrap app file ```bootstrap/app.php```
@@ -43,4 +43,4 @@ use Logtrackerable
 
 ## License
 
-The myGov Detector is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+The phGov Detector is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
