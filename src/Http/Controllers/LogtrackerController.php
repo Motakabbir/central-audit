@@ -38,8 +38,9 @@ class LogtrackerController extends Controller
         
         // Fetch logable data
         $data = Logtracker::orderBy('id', 'desc')->select([
-            'id','users','user_id','log_date','table_name','log_type','new_data','data'
+            'id','users','user_id','office_layer_id','office_id','ministry_id' ,'region_id','province_id','municipality_id','barangay_id','designation_id','log_date','table_name','log_type','new_data','data'
         ])
+        
         ->get()->map(function($data) {
             // It will remove from here later and handle it from core project
             return [
@@ -47,6 +48,15 @@ class LogtrackerController extends Controller
                 'users' => $data->users,
                 'user_id' => $data->user_id,
                 'username' => $data->user_id,
+                'office_layer_id' => $data->office_layer_id,
+                'office_id' => $data->office_id,
+                'ministry_id' => $data->ministry_id,
+                'region_id' => $data->region_id,
+                'province_id' => $data->province_id,
+                'province_id' => $data->province_id,
+                'municipality_id' => $data->municipality_id,
+                'barangay_id' => $data->barangay_id,
+                'designation_id' => $data->designation_id,
                 'log_date' => $data->log_date->format('Y-m-d'),
                 'log_time' => $data->log_date->format('H:i:s a'),
                 'human_date' => $data->log_date->diffForHumans(),

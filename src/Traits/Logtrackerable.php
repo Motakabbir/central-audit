@@ -2,6 +2,7 @@
 namespace phGov\Auditlog\Traits;
 
 use stdClass;
+use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
@@ -42,7 +43,7 @@ trait Logtrackerable
         //     'officeNameEng' => $userInfo['officeNameEng'],
         //     'officeNameBng' => $userInfo['officeNameBng']
         // ];
-        $userdata=User::with('employees','employee_geo')->find(Auth::id());
+        $userdata=User::with('employees','employee_geo')->find($userId);
   
 
 
