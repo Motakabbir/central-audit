@@ -7,7 +7,7 @@ namespace Composer\Autoload;
 class ComposerStaticInit25b7ff01d90e023408ebcc527b359784
 {
     public static $prefixLengthsPsr4 = array (
-        'P' => 
+        'p' => 
         array (
             'phGov\\Auditlog\\' => 15,
         ),

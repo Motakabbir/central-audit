@@ -14,7 +14,7 @@
     "require": {},  
     "autoload": {
         "psr-4": {
-            "Phgov\\Auditlog\\": "src/"
+            "phGov\\Auditlog\\": "src/"
         }
     },     
     "extra": {
