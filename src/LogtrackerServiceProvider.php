@@ -1,6 +1,6 @@
 <?php 
 
-namespace phGov\Logtracker;
+namespace phGov\Auditlog;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Events\EventServiceProvider;

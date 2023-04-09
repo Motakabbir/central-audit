@@ -1,9 +1,9 @@
 <?php
 
-namespace phGov\Logtracker;
+namespace phGov\Auditlog;
 
 use Illuminate\Auth\Events\Login;
-use phGov\Logtracker\Listeners\LoginListener;
+use phGov\Auditlog\Listeners\LoginListener;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 
 

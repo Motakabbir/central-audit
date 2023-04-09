@@ -1,6 +1,6 @@
 <?php
 
-namespace phGov\Logtracker\Listeners;
+namespace phGov\Auditlog\Listeners;
 
 use Illuminate\Http\Request;
 use Illuminate\Auth\Events\Login;

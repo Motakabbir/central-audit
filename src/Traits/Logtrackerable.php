@@ -1,5 +1,5 @@
 <?php
-namespace phGov\Logtracker\Traits;
+namespace phGov\Auditlog\Traits;
 
 use stdClass;
 use Illuminate\Support\Facades\DB;

@@ -1,6 +1,6 @@
 <?php
 
-namespace phGov\Logtracker\Http\Middleware;
+namespace phGov\Auditlog\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
@@ -16,7 +16,7 @@ class VerifyLogApiToken
      */
     public function handle(Request $request, Closure $next)
     {
-        if( $request->header('Authorization') !== config('logtracker.service_audit') ) {
+        if( $request->header('Authorization') !== config('Auditlog.service_audit') ) {
             return response()->json(['error-message' => 'Token mismatch with service audit token'],404);
         }
         return $next($request);

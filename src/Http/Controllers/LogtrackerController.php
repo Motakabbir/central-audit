@@ -1,11 +1,11 @@
 <?php
 
-namespace myGov\Logtracker\Http\Controllers;
+namespace phGov\Auditlog\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
-use myGov\Logtracker\Models\Logtracker;
+use phGov\Auditlog\Models\Logtracker;
 
 class LogtrackerController extends Controller
 {
