@@ -24,7 +24,7 @@ Register the provider in your boostrap app file bootstrap/app.php
 Add the following line in the "Register Service Providers" section at the bottom of the file.
 
 ```
-$app->register(\phGov\Logtracker\LogtrackerServiceProvider::class);
+$app->register(\phGov\Auditlog\LogtrackerServiceProvider::class);
 ```
 
 For facades, uncomment ```$app->withFacades();``` in your boostrap app file ```bootstrap/app.php```

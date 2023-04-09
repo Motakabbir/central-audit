@@ -14,13 +14,13 @@
     "require": {},  
     "autoload": {
         "psr-4": {
-            "Phgov\\Logtracker\\": "src/"
+            "Phgov\\Auditlog\\": "src/"
         }
     },     
     "extra": {
         "laravel": {
             "providers": [
-                "phGov\\Logtracker\\LogtrackerServiceProvider"
+                "phGov\\Auditlog\\LogtrackerServiceProvider"
             ]
         }
     }
