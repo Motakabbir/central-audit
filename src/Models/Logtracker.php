@@ -28,6 +28,7 @@ class Logtracker extends Model
     private $geoProvienceInstance = "\App\Models\GeoProvience";
     private $geoMunicipalityInstance = "\App\Models\GeoMunicipality";
     private $geoBarangayInstance = "\App\Models\GeoBarangay";
+    private $designationInstance = "\App\Models\Designation";
 
     public function __construct() {
         $userInstance = ''; // Will be dynamic for package
@@ -73,7 +74,10 @@ class Logtracker extends Model
     {
         return $this->belongsTo($this->geoBarangayInstance);
     }
-    
+    public function designation()
+    {
+        return $this->belongsTo($this->designationInstance);
+    }
 
     public function scopeOrderByName($query)
     {
@@ -87,7 +91,7 @@ class Logtracker extends Model
     }
     
     public function scopeFilter($query, array $filters)
-    {
+    {       
         $query->when($filters['search'] ?? null, function ($query, $search) {
             $query->where(function ($query) use ($search) {
                 $query->where('table_name', 'like', '%'.$search.'%')
@@ -98,7 +102,7 @@ class Logtracker extends Model
             });
         })->when($filters['user_id'] ?? null, function ($query, $user_id) {            
             $query->where('user_id', '=', $user_id);
-        })->when($filters['office_layer_id'] ?? null, function ($query, $office_layer_id) {            
+        })->when($filters['office_layer_id'] ?? null, function ($query, $office_layer_id) {       
             $query->where('office_layer_id', '=', $office_layer_id);
         })->when($filters['office_id'] ?? null, function ($query, $office_id) {            
             $query->where('office_id', '=', $office_id);
@@ -108,11 +112,11 @@ class Logtracker extends Model
             $query->where('region_id', '=', $region_id);
         })->when($filters['province_id'] ?? null, function ($query, $province_id) {            
             $query->where('province_id', '=', $province_id);
-        })->when($filters['municipality_id'] ?? null, function ($query, $municipality_id) {            
+        })->when($filters['municipality_id'] ?? null, function ($query, $municipality_id) {
             $query->where('municipality_id', '=', $municipality_id);
         })->when($filters['barangay_id'] ?? null, function ($query, $barangay_id) {            
             $query->where('barangay_id', '=', $barangay_id);
-        })->when($filters['designation_id'] ?? null, function ($query, $designation_id) {            
+        })->when($filters['designation_id'] ?? null, function ($query, $designation_id) {
             $query->where('designation_id', '=', $designation_id);
         })->when($filters['trashed'] ?? null, function ($query, $trashed) {
             if ($trashed === 'with') {
