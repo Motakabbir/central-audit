@@ -92,7 +92,7 @@ class Logtracker extends Model
             $query->where(function ($query) use ($search) {
                 $query->where('table_name', 'like', '%'.$search.'%')
                     ->orWhere('log_type', 'like', '%'.$search.'%')
-                    ->orWhereHas('users', function ($query) use ($search) {
+                    ->orWhereHas('user', function ($query) use ($search) {
                         $query->where('name', 'like', '%'.$search.'%');
                     });                   
             });
