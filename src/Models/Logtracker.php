@@ -89,13 +89,13 @@ class Logtracker extends Model
     public function scopeFilter($query, array $filters)
     {
         $query->when($filters['search'] ?? null, function ($query, $search) {
-            // $query->where(function ($query) use ($search) {
-            //     $query->where('barangay_name', 'like', '%'.$search.'%')
-            //         ->orWhere('code', 'like', '%'.$search.'%')
-            //         ->orWhereHas('geo_municipality', function ($query) use ($search) {
-            //             $query->where('municipality_name', 'like', '%'.$search.'%');
-            //         });                   
-            // });
+            $query->where(function ($query) use ($search) {
+                $query->where('table_name', 'like', '%'.$search.'%')
+                    ->orWhere('log_type', 'like', '%'.$search.'%')
+                    ->orWhereHas('users', function ($query) use ($search) {
+                        $query->where('name', 'like', '%'.$search.'%');
+                    });                   
+            });
         })->when($filters['user_id'] ?? null, function ($query, $user_id) {            
             $query->where('user_id', '=', $user_id);
         })->when($filters['office_layer_id'] ?? null, function ($query, $office_layer_id) {            
@@ -122,4 +122,6 @@ class Logtracker extends Model
             }
         });
     }
+
+
 }
